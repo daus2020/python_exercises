@@ -2,8 +2,9 @@
 # import re
 
 
-tt = tuple(range(2,8))
-print(tt)
+# tt = tuple(range(2,8))
+# print(tt)
+
 # serie = [2,3,4,5,6,7]
 # multiply_list = []
 
@@ -30,7 +31,7 @@ print(tt)
 #   vd = 'K'
 # elif vd == 11:
 #   vd = 0
-  
+
 # print(f"Su dígito verificador es: {vd}")
 
 
@@ -43,3 +44,10 @@ print(tt)
 # 23.504.156-1
 # 8.713.020-7
 # 20.799.809-5
+
+# for i, value in enumerate(range(3, 8)):
+#     print(f"{i} - {value}")
+
+my_input = input("Enter integer or float number: ")
+if float(my_input) in range(3, 8):
+    print(f"My number {my_input} is in the range {range(3, 8)}")

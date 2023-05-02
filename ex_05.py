@@ -1,22 +1,24 @@
-num_a = input("Ingrese primer número entero: ")
-num_b = input("Ingrese segundo número entero: ")
-between_qty = abs(int(num_a) - int(num_b)) - 1
+num_a = int(input("Ingrese primer número entero: "))
+num_b = int(input("Ingrese segundo número entero: "))
+
+between_qty = abs(num_a - num_b) - 1
 
 if between_qty < 1:
     print(f"Entre {num_a} y {num_b} no hay números.")
 else:
-    lowest = min(int(num_a), int(num_b))
-    largest = max(int(num_a), int(num_b))
-    qty_between = largest - lowest -1
-    all_even_between = []
-    
-    for i in range(lowest + 1, largest):
+    mini = min(num_a, num_b)
+    maxi = max(num_a, num_b)
+
+    count_even_between, sum_even_between = 0, 0
+    # count_even_between = sum_even_between = 0
+
+    for i in range(mini + 1, maxi):
         print(i)
-        if not(i % 2):
-            all_even_between.append(i)
-            
-    qty_even_between = len(all_even_between)
-    sum_even_between = sum(all_even_between)
-    # print(all_even_between)
-    print(f"Entre {lowest} y {largest} hay {qty_between} números siendo {qty_even_between} de ellos pares.")
-    print(f"La suma de los pares es de {sum_even_between}.")
+        if i % 2 == 0:  # if not(i % 2):
+            sum_even_between += i
+            count_even_between += 1
+
+    print(
+        f"Entre {mini} y {maxi} hay {maxi - mini -1} números siendo {count_even_between} de ellos pares."
+    )
+    print(f"La suma de los pares es: {sum_even_between}.")

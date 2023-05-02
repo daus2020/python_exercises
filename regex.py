@@ -1,14 +1,14 @@
-from unidecode import unidecode
+# from unidecode import unidecode
 import re
 
-txt = "Hola cómo te ha ido"
+txt = "María se casó con José!"
 letters = input("Ingrese cadena de letras: ")
 
 letters_in_txt = re.search(letters, txt)
 print(letters_in_txt)
 
-uni = unidecode(letters)
-print(uni)
+# uni = unidecode(letters)
+# print(uni)
 
 if letters_in_txt:
   print(f"La cadena '{letters}' está en el texto: '{txt}'")

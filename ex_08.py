@@ -5,6 +5,7 @@ letters = input("Ingrese palabra o cadena a buscar: ")
 search_type = input("Busca una palabra exacta NO seguida de ,.!?(opción 1), palabra con o sin acento mayúscula minúscula, o una cadena exacta le puede seguir un signos gramáticos (,.!?) (enter) o una cadena (ignora min, may, acentos)")
 
 my_split = txt.split()
+print(my_split)
 
 print(search_type)
 # if letters in my_split:
