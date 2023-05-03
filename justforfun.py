@@ -48,6 +48,22 @@
 # for i, value in enumerate(range(3, 8)):
 #     print(f"{i} - {value}")
 
-my_input = input("Enter integer or float number: ")
-if float(my_input) in range(3, 8):
-    print(f"My number {my_input} is in the range {range(3, 8)}")
+# my_input = input("Enter integer or float number: ")
+# if float(my_input) in range(3, 8):
+#     print(f"My number {my_input} is in the range {range(3, 8)}")
+
+# my_list = ["c", "j", "w", ""]
+
+
+paises_y_capitales = {
+    "Japon": "Tokio",
+    "Inglaterra": "Londres",
+    "Francia": "Paris",
+    "Alemania": "Berlin",
+}
+
+# keys = paises_y_capitales.keys()
+values = paises_y_capitales.values()
+
+for i, value in values:
+    print(f"{paises_y_capitales[i]} - {value}")
