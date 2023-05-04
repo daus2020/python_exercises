@@ -55,15 +55,34 @@
 # my_list = ["c", "j", "w", ""]
 
 
-paises_y_capitales = {
-    "Japon": "Tokio",
-    "Inglaterra": "Londres",
-    "Francia": "Paris",
-    "Alemania": "Berlin",
-}
+# paises_y_capitales = {
+#     "Japon": "Tokio",
+#     "Inglaterra": "Londres",
+#     "Francia": "Paris",
+#     "Alemania": "Berlin",
+# }
 
-# keys = paises_y_capitales.keys()
-values = paises_y_capitales.values()
+# # keys = paises_y_capitales.keys()
+# values = paises_y_capitales.values()
 
-for i, value in values:
-    print(f"{paises_y_capitales[i]} - {value}")
+# for i, value in values:
+#     print(f"{paises_y_capitales[i]} - {value}")
+
+
+# def mean(the_list):
+#     res = sum(the_list) / len(the_list)
+#     return res
+
+
+# my_list = [5, 7]
+# result = mean(my_list)
+# print(result)
+# a, b = input("Enter a two value: ").split()
+# print("Value of a: ", a)
+# print("Value of b: ", b)
+
+theory, practice = input(
+    "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+).split()
+mean = (float(theory) + float(practice)) / 2
+print(mean)

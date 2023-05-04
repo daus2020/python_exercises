@@ -1,37 +1,41 @@
 import re  # for validate run input (exercise 10)
-from rich.console import Console
 
-console = Console()
+# from rich.console import Console
+
+# console = Console()
 
 
 # option 1:
 def average_mark():
-    console.print("Average Mark", style="blue")
-    marks = []
-    while True:
-        # my_mark = input("Ingrese nota (1.0 a 7.0): ")
-        my_mark = float(input("Ingrese nota (1.0 a 7.0): "))
-        if (my_mark >= 1) and (my_mark <= 7):
-            # alt if (my_mark >= 1) and (my_mark <= 7):
-            marks.append(float(my_mark))
-            add_mark = input("Desea agregar otra nota: sí (enter) - no (n)")
-            if add_mark == "n":
-                break
-        else:
-            print("Nota fuera de rango (1.0 a 7.0). Intente nuevamente.")
-    average = sum(marks) / len(marks)
-    print("\n================================================================")
-    print("             Resumen")
-    print("Notas: ", *marks, sep="  ")
+    print("Promedio de dos notas")
+    theory, practice = input(
+        "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+    ).split()
+    average = (float(theory) + float(practice)) / 2
+    # print(average)
+    # marks = []
+    # while True:
+    #     # my_mark = input("Ingrese nota (1.0 a 7.0): ")
+    #     my_mark = float(input("Ingrese nota (1.0 a 7.0): "))
+    #     if (my_mark >= 1) and (my_mark <= 7):
+    #         # alt if (my_mark >= 1) and (my_mark <= 7):
+    #         marks.append(float(my_mark))
+    #         add_mark = input("Desea agregar otra nota: sí (enter) - no (n)")
+    #         if add_mark == "n":
+    #             break
+    #     else:
+    #         print("Nota fuera de rango (1.0 a 7.0). Intente nuevamente.")
+    # average = sum(marks) / len(marks)
+    # print("Notas: ", *marks, sep="  ")
+    print("\n===========================")
+    print("           Resumen")
     print(f"Promedio de notas: {average:.1f}")
     # print(f"Promedio de notas: {sum(marks)/len(marks):.1f}")
     if average >= 4:
         print(f"Situación: Alumno aprobado.")
     else:
         print(f"Situación: Alumno reprobado.")
-
-
-print("\n")
+    print("\n")
 
 
 # option 2:
@@ -41,9 +45,7 @@ def celcius_farenheit():
     print(
         f"{celcius} grados Celcius (°C) equivalen a {farenheit} grados Fahrenheit (°F)"
     )
-
-
-print("\n")
+    print("\n")
 
 
 # option 3:
@@ -76,12 +78,11 @@ def even_numbers_between():
         maxi = max(num_a, num_b)
 
         count_even_between, sum_even_between = 0, 0
-        # count_even_between = sum_even_between = 0
 
-        for i in range(mini + 1, maxi):
-            print(i)
-            if i % 2 == 0:  # alt --> if not(i % 2):
-                sum_even_between += i
+        for item in range(mini + 1, maxi):
+            print(item)
+            if item % 2 == 0:  # alt --> if not(i % 2):
+                sum_even_between += item
                 count_even_between += 1
 
         print(
@@ -104,10 +105,10 @@ def multiplication_table():
 # option 7:
 def skip_number():
     num_1to19 = input("Dame un numero del 1 al 19 ==> ")
-    for i in range(1, 20):
-        if i == int(num_1to19):
+    for item in range(1, 20):
+        if item == int(num_1to19):
             continue
-        print(f"{i}-- ", end="")
+        print(f"{item}-- ", end="")
     print("", end="\n")
     print("Terminé")
     print("\n")
@@ -145,6 +146,7 @@ def is_word_in_txt():
     txt_trans = txt.maketrans(first_string, second_string)
     txt_no_accents = txt.translate(txt_trans)
     txt_lower_no_accents = txt_no_accents.lower()
+
     letters_trans = letters.maketrans(first_string, second_string)
     letters_no_accents = letters.translate(letters_trans)
     letters_lower_no_accents = letters_no_accents.lower()
