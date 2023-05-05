@@ -115,6 +115,9 @@ import re
 # def average(string_list):
 #     return sum(string_list) / len(string_list)
 
+# from rich.console import Console
+# console = Console()
+
 
 # my_marks = input(
 #     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "

@@ -1,7 +1,4 @@
-import re  # for validate run input (exercise 10)
-
-# from rich.console import Console
-# console = Console()
+import re  # for validate marks input (exercise 1 alt. 02) and run input (exercise 10)
 
 
 # option 1:
@@ -13,15 +10,34 @@ def average_mark():
     # ).split()
     # average = (float(theory) + float(practice)) / 2
 
-    # Sol. alt.2 accept more marks
+    # Sol. alt.2 accept more than two marks - validation incl.
     while True:
         my_marks = input(
-            "Ingrese notas (1.0 a 7.0), separadas por un espacio y luego enter: "
+            "Ingrese notas (1.0 a 7.0), separadas por un espacio y una vez ingresadas, digite enter: "
         ).split()
-        if my_marks 
 
-    # list comprehension    alt. --> marks = list(map(float, my_marks))
-    marks = [float(item) for item in my_marks]
+        # validate marks are only digits
+        if not (re.match("^[\d.]+$", "".join(my_marks))):
+            print(
+                "Debe ingresar sólo números que estén en el rango de 1.0 a 7.0. Intente nuevamente."
+            )
+        else:
+            # marks: list comprehension  alt.--> marks = list(map(float, my_marks))
+            marks = [float(item) for item in my_marks]
+            # Validation if marks in range and at least one mark entered.
+            if all(1 <= item <= 7 for item in marks) and marks:
+                break
+            elif marks:
+                no_valid_marks = [
+                    float(item) for item in my_marks if not (1 <= float(item) <= 7)
+                ]
+                print(no_valid_marks)
+                print(
+                    f"Valor(es) ingresado(s) { *no_valid_marks, } no está(n) entre 1.0 y 7.0. Intente nuevamente."
+                )
+            else:
+                print("Debe ingresar notas")
+
     average = sum(marks) / len(marks)
 
     # Sol. alt. 3 accept more marks & incl. validation
@@ -38,15 +54,15 @@ def average_mark():
     #     else:
     #         print("Nota fuera de rango (1.0 a 7.0). Intente nuevamente.")
     # average = sum(marks) / len(marks)
-    # print("Notas: ", *marks, sep="  ")
     print("\n===========================")
     print("           Resumen")
+    print("Notas: ", *marks, sep="  ")
     print(f"Promedio de notas: {average:.1f}")
     # print(f"Promedio de notas: {sum(marks)/len(marks):.1f}")
     if average >= 4:
-        print(f"Situación: Alumno aprobado.")
+        print(f"Situación: aprobado")
     else:
-        print(f"Situación: Alumno reprobado.")
+        print(f"Situación: reprobado")
     print("\n")
 
 
@@ -129,7 +145,7 @@ def skip_number():
 # option 8:
 def is_word_in_txt():
     txt = "Hola cómo estás?"
-    # txt = input("Ingrese Texto: ")
+    # txt = input("Ingrese un Texto: ")
     letters = input("Ingrese palabra o cadena a buscar: ")
 
     print("Opciones de búsqueda")
@@ -208,8 +224,8 @@ def my_vd():
             print("Ingrese run válido, de 2 a 8 dígitos. No puede empezar con 0")
 
     rev_run = reversed(run_no_vd)
-    for i, value in enumerate(rev_run):
-        sum_product += ((i % 6) + 2) * int(value)
+    for index, value in enumerate(rev_run):
+        sum_product += ((index % 6) + 2) * int(value)
 
     vd = 11 - (sum_product % 11)
 
