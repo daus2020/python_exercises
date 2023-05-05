@@ -12,7 +12,7 @@ dd = 3 % 6  # 3
 ee = 4 % 6  # 4
 ff = 5 % 6  # 5
 gg = 6 % 6  # 0
-hh = 7 % 6  # 0
+hh = 7 % 6  # 1
 
 print(aa)
 print(bb)

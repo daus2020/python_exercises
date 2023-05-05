@@ -1,5 +1,5 @@
 # Find verification digit (vd) of chilean run
-# import re
+import re
 
 
 # tt = tuple(range(2,8))
@@ -81,8 +81,84 @@
 # print("Value of a: ", a)
 # print("Value of b: ", b)
 
-theory, practice = input(
-    "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
-).split()
-mean = (float(theory) + float(practice)) / 2
-print(mean)
+# theory, practice = input(
+#     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+# ).split()
+# mean = (float(theory) + float(practice)) / 2
+# print(mean)
+
+
+# a = float(input("Enter a number: "))
+# print(a)
+# print(type(a))
+# def foo(p1, *p2):
+#     print(p1)
+#     print(p2)
+
+
+# def bar(p1, **p2):
+#     print(p1)
+#     print(p2)
+
+
+# foo(1, 2, 3, 4, 5)
+# bar(1, a=2, b=3)
+
+
+# my_list = input(
+#     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+# ).split()
+# print(my_list)
+# print(type(my_list))
+
+
+# def average(string_list):
+#     return sum(string_list) / len(string_list)
+
+
+# my_marks = input(
+#     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+# ).split()
+# # my_marks = ["3", "4", "5"]
+# # print(my_marks)
+# marks = list(map(float, my_marks))
+# # marks = [int(s) for s in my_marks.split(", ")]
+# # print(marks)
+
+# mean = average(marks)
+# print(mean)
+
+while True:
+    my_marks = input(
+        "Ingrese notas (1.0 a 7.0), separadas por un espacio y una vez ingresadas, digite enter: "
+    ).split()
+    print(my_marks)
+    # validate marks are only digits
+    if not (re.match("^[\d.]+$", "".join(my_marks))):
+        # if not (re.match("^[\d ]+$", "".join(my_marks))):
+        print(
+            "Debe ingresar sólo números que estén en el rango de 1.0 a 7.0. Intente nuevamente."
+        )
+    else:
+        # marks: list comprehension  alt.--> marks = list(map(float, my_marks))
+        marks = [float(item) for item in my_marks]
+        # Validation if marks in range and at least one mark entered.
+        if all(1 <= item <= 7 for item in marks) and marks:
+            break
+        elif marks:
+            no_valid_marks = [
+                float(item) for item in my_marks if not (1 <= float(item) <= 7)
+            ]
+            print(no_valid_marks)
+            print(
+                f"Ingresó {no_valid_marks}, valor(es) que no está(n) entre 1.0 y 7.0, inclusive. Intente nuevamente."
+            )
+        else:
+            print("Debe ingresar notas")
+
+average = sum(marks) / len(marks)
+print(average)
+
+
+# if re.match("^[0-9 ]+$", myString):
+#     print ("Only numbers and Spaces")

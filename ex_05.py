@@ -12,10 +12,10 @@ else:
     count_even_between, sum_even_between = 0, 0
     # count_even_between = sum_even_between = 0
 
-    for i in range(mini + 1, maxi):
-        print(i)
-        if i % 2 == 0:  # if not(i % 2):
-            sum_even_between += i
+    for item in range(mini + 1, maxi):
+        print(item)
+        if item % 2 == 0:  # if not(i % 2):
+            sum_even_between += item
             count_even_between += 1
 
     print(

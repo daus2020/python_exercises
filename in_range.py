@@ -1,18 +1,30 @@
 import re  # for validate run input (exercise 10)
 
 # from rich.console import Console
-
 # console = Console()
 
 
 # option 1:
 def average_mark():
-    print("Promedio de dos notas")
-    theory, practice = input(
-        "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
-    ).split()
-    average = (float(theory) + float(practice)) / 2
-    # print(average)
+    # Sol. alt. 1
+    # print("Promedio de dos notas")
+    # theory, practice = input(
+    #     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
+    # ).split()
+    # average = (float(theory) + float(practice)) / 2
+
+    # Sol. alt.2 accept more marks
+    while True:
+        my_marks = input(
+            "Ingrese notas (1.0 a 7.0), separadas por un espacio y luego enter: "
+        ).split()
+        if my_marks 
+
+    # list comprehension    alt. --> marks = list(map(float, my_marks))
+    marks = [float(item) for item in my_marks]
+    average = sum(marks) / len(marks)
+
+    # Sol. alt. 3 accept more marks & incl. validation
     # marks = []
     # while True:
     #     # my_mark = input("Ingrese nota (1.0 a 7.0): ")
@@ -224,15 +236,13 @@ def menu():
     print("  8 > Confirmar si cadena ingresada está en el texto")
     print("  9 > Solicitud base y altura de rectángulo y dibujarlo")
     print(" 10 > Ingresar run sin puntos ni dv, imprimir dv")
+    print(" 11 > Salir")
 
 
 def get_option():
-    # not_valid = True
-
     while True:
-        # while not_valid:
         menu()
-        options = tuple(range(1, 11))
+        options = tuple(range(1, 12))
         my_option = int(input("Ingrese una opción del 1 al 10: "))
 
         if my_option in options:
@@ -267,7 +277,5 @@ while True:
             base_height_draw()
         case 10:
             my_vd()
-# options_request()
-
-get_option()
-print(my_option)
+        case 11:
+            exit()
