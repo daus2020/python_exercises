@@ -5,9 +5,13 @@ import re  # for validate marks input (exercise 1 alt. 02) and run input (exerci
 def average_mark():
     # Sol. alt. 1
     # print("Promedio de dos notas")
-    # theory, practice = input(
-    #     "Ingrese nota de 'Teoría' y luego la de 'Práctica' separadas por un espacio y luego enter: "
-    # ).split()
+    # theory, practice = 0, 0
+
+    # while not ((1 <= float(theory) <= 7) and (1 <= float(practice) <= 7)):
+    #     theory = input("Ingrese nota de 'Teoría' ")
+    #     practice = input("Ingrese nota de 'Práctica' ")
+
+    # marks = [float(theory), float(practice)]
     # average = (float(theory) + float(practice)) / 2
 
     # Sol. alt.2 accept more than two marks - validation incl.
@@ -31,7 +35,6 @@ def average_mark():
                 no_valid_marks = [
                     float(item) for item in my_marks if not (1 <= float(item) <= 7)
                 ]
-                print(no_valid_marks)
                 print(
                     f"Valor(es) ingresado(s) { *no_valid_marks, } no está(n) entre 1.0 y 7.0. Intente nuevamente."
                 )
@@ -200,14 +203,19 @@ def is_word_in_txt():
 
 # option 9:
 def base_height_draw():
-    altura = input("Ingrese altura del rectángulo: ")
+    height = input("Ingrese altura del rectángulo: ")
     base = input("Ingrese base del rectángulo: ")
 
-    for x in range(int(altura)):
-        for y in range(int(base)):
-            print("*", end="")
-        print("")
-    print("Fin de programa")
+    for i in range(0, int(height)):
+        print("*" * int(base))
+
+
+    # alt. 2 
+    # for x in range(int(alturheight)):
+    #     for y in range(int(base)):
+    #         print("*", end="")
+    #     print("")
+    # print("Fin de programa")
     print("\n")
 
 
@@ -270,28 +278,32 @@ def get_option():
 
 
 while True:
-    option = get_option()
+    my_option = get_option()
     print("\n")
-    match option:
-        case 1:
-            average_mark()
-        case 2:
-            celcius_farenheit()
-        case 3:
-            imc()
-        case 4:
-            number_length()
-        case 5:
-            even_numbers_between()
-        case 6:
-            multiplication_table()
-        case 7:
-            skip_number()
-        case 8:
-            is_word_in_txt()
-        case 9:
-            base_height_draw()
-        case 10:
-            my_vd()
-        case 11:
-            exit()
+    choices = [my_option, average_mark, celcius_farenheit, imc, number_length, even_numbers_between, multiplication_table, skip_number, is_word_in_txt, base_height_draw, my_vd, exit]
+    choices[my_option]()
+
+    # alt. with switch match-case
+    # match my_option:
+    #     case 1:
+    #         average_mark()
+    #     case 2:
+    #         celcius_farenheit()
+    #     case 3:
+    #         imc()
+    #     case 4:
+    #         number_length()
+    #     case 5:
+    #         even_numbers_between()
+    #     case 6:
+    #         multiplication_table()
+    #     case 7:
+    #         skip_number()
+    #     case 8:
+    #         is_word_in_txt()
+    #     case 9:
+    #         base_height_draw()
+    #     case 10:
+    #         my_vd()
+    #     case 11:
+    #         exit()
